@@ -1,0 +1,22 @@
+# Версия Docker-Compose
+version: '3.7'
+# Ключевое слово
+services:
+  # Название контейнера
+  mysql:
+    # Образ MySQL:version
+    image: mysql:8.0.18
+
+    restart: always
+    # Binding Ports
+    ports:
+      - '5432:5432'
+    # Binding Directories (PC:Container_BD)
+    volumes:
+      - /C/ProgramData/DockerDesktop/vm-data:/var/lib/mysql
+    # Системные Переменные
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=adminpass
