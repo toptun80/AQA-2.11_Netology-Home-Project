@@ -12,7 +12,7 @@ services:
     # Binding Directories (PC:Container_BD)
     volumes:
       - /C/ProgramData/DockerDesktop/vm-data:/VAR/LIB/MYSQL
-      - /C/Users/Michael/IdeaProjects/SQL/artifacts:/docker-entrypoint-initdb.d
+      - ./src/test/resources:/docker-entrypoint-initdb.d
     # Системные Переменные
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
