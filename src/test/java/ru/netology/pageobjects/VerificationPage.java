@@ -21,10 +21,10 @@ public class VerificationPage {
         return new DashboardPage();
     }
 
-    public SelenideElement invalidVerify(UserData.AuthSMSCode authSMSCode) {
+    public void invalidVerify(UserData.AuthSMSCode authSMSCode) {
         String wrongCode = authSMSCode.getAuthSMSCode().substring(1,3) + "123";
         CODE_FIELD.setValue(wrongCode);
         VERIFY_BUTTON.click();
-        return ERROR_MESSAGE;
+        ERROR_MESSAGE.waitUntil(Condition.visible, 15000);
     }
 }

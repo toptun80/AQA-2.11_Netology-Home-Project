@@ -1,5 +1,6 @@
 package ru.netology.pageobjects;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.userdata.UserData;
 
@@ -18,11 +19,11 @@ public class LoginPage {
         return new VerificationPage();
     }
 
-    public SelenideElement invalidLogin(UserData.AuthInfo authInfo) {
+    public void invalidLogin(UserData.AuthInfo authInfo) {
         LOGIN_FIELD.setValue(authInfo.getLogin());
         PASSWORD_FIELD.setValue(authInfo.getPassword() + "123");
         LOGIN_BUTTON.click();
-        return ERROR_MESSAGE;
+        ERROR_MESSAGE.waitUntil(Condition.visible, 15000);
     }
 
 

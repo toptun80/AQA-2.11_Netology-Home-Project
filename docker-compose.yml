@@ -11,7 +11,7 @@ services:
       - '3306:3306'
     # Binding Directories (PC:Container_BD)
     volumes:
-      - /C/ProgramData/DockerDesktop/vm-data:/VAR/LIB/MYSQL
+      - ./Data:/var/lib/MySQL
       - ./src/test/resources:/docker-entrypoint-initdb.d
     # Системные Переменные
     environment:

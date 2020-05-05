@@ -1,6 +1,5 @@
 package ru.netology.tests;
 
-import com.codeborne.selenide.Condition;
 import lombok.val;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,8 +39,7 @@ public class AuthorisationTest {
     void authorisationWithIncorrectPassword() {
         val loginPage = new LoginPage();
         val authInfo = UserData.getAuthInfo();
-        val ERROR_MESSAGE = loginPage.invalidLogin(authInfo);
-        ERROR_MESSAGE.waitUntil(Condition.visible, 15000);
+        loginPage.invalidLogin(authInfo);
     }
 
     @Test
@@ -51,13 +49,6 @@ public class AuthorisationTest {
         val authInfo = UserData.getAuthInfo();
         val verificationPage = loginPage.validLogin(authInfo);
         val authSMSCode = UserData.getAuthSMSCode();
-        val ERROR_MESSAGE = verificationPage.invalidVerify(authSMSCode);
-        ERROR_MESSAGE.waitUntil(Condition.visible, 15000);
+        verificationPage.invalidVerify(authSMSCode);
     }
-
-
-
-
-
-
 }
